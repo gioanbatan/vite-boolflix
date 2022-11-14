@@ -22,7 +22,7 @@ export default {
         <div v-else-if="type === 'series'">Original title: {{ result.original_name }}</div>
         <div v-if="flag">
             <span>Language (img): </span>
-            <img :src="getImagePath(`../assets/img/${this.flag}`)" :alt="`${result.original_language}`">
+            <img class="flag" :src="getImagePath(`../assets/img/${this.flag}`)" :alt="`${result.original_language}`">
         </div>
         <div v-else>Language: {{ result.original_language }}</div>
         <div>Vote: {{ result.vote_average }}</div>
@@ -30,7 +30,7 @@ export default {
 </template>
 
 <style lang="scss">
-img {
+.flag {
     max-width: 30px;
 }
 </style>
