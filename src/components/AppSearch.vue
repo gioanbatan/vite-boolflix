@@ -12,28 +12,31 @@ export default {
     methods: {
         search() {
             console.log("BUTTON");
-            // URL creation
-            let apiCallUrl = `${this.store.apiURL}${this.store.movieURL}?api_key=${this.store.apiKey}&query=${this.store.query}`;
-            console.log(apiCallUrl);
-            // Loading on
-            store.isLoading = true;
-            // Api call for Movies and update store.movieFound
-            axios.get(apiCallUrl).then((resp) => {
-                this.store.movieFound = resp.data.results;
-                console.log(this.store.movieFound);
-            });
+            if (this.store.query) {
+                // URL creation
+                let apiCallUrl = `${this.store.apiURL}${this.store.movieURL}?api_key=${this.store.apiKey}&query=${this.store.query}`;
+                console.log(apiCallUrl);
+                // Loading on
+                store.isLoading = true;
+                // Api call for Movies and update store.movieFound
+                axios.get(apiCallUrl).then((resp) => {
+                    this.store.movieFound = resp.data.results;
+                    console.log(this.store.movieFound);
+                });
 
-            // URL creation
-            apiCallUrl = `${this.store.apiURL}${this.store.seriesURL}?api_key=${this.store.apiKey}&query=${this.store.query}`;
-            console.log(apiCallUrl);
-            // Api call for Tv Shows and update store.seriesFound
-            axios.get(apiCallUrl).then((resp) => {
-                this.store.seriesFound = resp.data.results;
-                console.log(this.store.seriesFound);
-                // Loading off
-                store.isLoading = false;
-            });
-
+                // URL creation
+                apiCallUrl = `${this.store.apiURL}${this.store.seriesURL}?api_key=${this.store.apiKey}&query=${this.store.query}`;
+                console.log(apiCallUrl);
+                // Api call for Tv Shows and update store.seriesFound
+                axios.get(apiCallUrl).then((resp) => {
+                    this.store.seriesFound = resp.data.results;
+                    console.log(this.store.seriesFound);
+                    // Loading off
+                    store.isLoading = false;
+                });
+            } else {
+                console.log("Query is empty!");
+            }
         }
     }
 }

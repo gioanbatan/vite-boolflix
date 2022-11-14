@@ -10,10 +10,12 @@ export const store = reactive({
     isLoading: false,
     movieFound: [],
     seriesFound: [],
+    flagImage: "",
     testSingleResult: {
         title: "Test Title",
         originalTitle: "Test Original Title",
         language: "Test Language It",
         vote: 5,
     }
+
 });
