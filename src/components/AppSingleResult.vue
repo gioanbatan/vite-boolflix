@@ -9,10 +9,10 @@ export default {
 
 <template>
     <section>
-        <div>{{ result.title }}</div>
-        <div>{{ result.originalTitle }}</div>
-        <div>{{ result.language }}</div>
-        <div>{{ result.vote }}</div>
+        <div>Title: {{ result.title }}</div>
+        <div>Original title: {{ result.original_title }}</div>
+        <div>Language {{ result.original_language }}</div>
+        <div>Vote: {{ result.vote_average }}</div>
     </section>
 </template>
 
