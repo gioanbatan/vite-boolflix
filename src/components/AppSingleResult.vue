@@ -26,6 +26,7 @@ export default {
         </div>
         <div v-else>Language: {{ result.original_language }}</div>
         <div>Vote: {{ result.vote_average }}</div>
+        <img :src="`https://image.tmdb.org/t/p/w342/${result.poster_path}`">
     </section>
 </template>
 

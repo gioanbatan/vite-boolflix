@@ -47,7 +47,6 @@ export default {
         <div>Result: {{ (index + 1) }}</div>
         <br>
         <AppSingleResult :result="item" type="movie" :flag="`${langToFlag(item)}`" />
-        <img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`">
         <hr>
     </div>
 
@@ -56,7 +55,6 @@ export default {
         <div>Result: {{ (index + 1) }}</div>
         <br>
         <AppSingleResult :result="item" type="series" :flag="`${langToFlag(item)}`" />
-        <img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`">
         <hr>
     </div>
 </template>
