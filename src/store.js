@@ -9,5 +9,11 @@ export const store = reactive({
     query: "",
     isLoading: false,
     movieFound: [],
-    seriesFound: []
+    seriesFound: [],
+    testSingleResult: {
+        title: "Test Title",
+        originalTitle: "Test Original Title",
+        language: "Test Language It",
+        vote: 5,
+    }
 });
