@@ -13,26 +13,29 @@ export default {
         }
     },
     methods: {
-        langToFlag() {
-            switch (store.original_language) {
+        langToFlag(typeOf) {
+            switch (typeOf.original_language) {
                 case 'en':
-                    this.store.flagImage = "640px-Flag_of_the_United_Kingdom.svg.webp";
+                    return "640px-Flag_of_the_United_Kingdom.svg.webp";
                     break;
                 case 'fr':
-                    this.store.flagImage = "640px-Flag_of_France_(1794–1815,_1830–1974,_2020–present).svg.webp";
+                    return "640px-Flag_of_France_(1794–1815,_1830–1974,_2020–present).svg.webp";
                     break;
                 case 'it':
-                    this.store.flagImage = "640px-Flag_of_Italy.svg.png";
+                    return "640px-Flag_of_Italy.svg.png";
                     break;
                 case 'es':
-                    this.store.flagImage = "640px-Bandera_de_España.svg.png";
+                    return "640px-Bandera_de_España.svg.png";
                     break;
                 case 'de':
-                    this.store.flagImage = "640px-Flag_of_Germany.svg.png";
+                    return "640px-Flag_of_Germany.svg.png";
                     break;
                 default:
-                    this.store.flagImage = ""
+                    return "";
             }
+        },
+        gus() {
+            return "640px-Flag_of_Germany.svg.png";
         }
     }
 }
@@ -43,7 +46,7 @@ export default {
     <div v-for="(item, index) in store.movieFound" :key="index">
         <div>Result: {{ (index + 1) }}</div>
         <br>
-        <AppSingleResult :result="item" type="movie" />
+        <AppSingleResult :result="item" type="movie" :flag="`${langToFlag(item)}`" />
         <hr>
     </div>
 
@@ -51,7 +54,7 @@ export default {
     <div v-for="(item, index) in store.seriesFound" :key="index">
         <div>Result: {{ (index + 1) }}</div>
         <br>
-        <AppSingleResult :result="item" type="series" />
+        <AppSingleResult :result="item" type="series" :flag="`${langToFlag(item)}`" />
         <hr>
     </div>
 </template>
