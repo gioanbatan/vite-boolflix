@@ -26,7 +26,10 @@ export default {
         </div>
         <div v-else>Language: {{ result.original_language }}</div>
         <div>Vote: {{ result.vote_average }}</div>
-        <img :src="`https://image.tmdb.org/t/p/w342/${result.poster_path}`">
+        <span v-for="n in (Math.ceil(result.vote_average / 2))" :key="n">&starf;</span>
+        <div>
+            <img :src="`https://image.tmdb.org/t/p/w342/${result.poster_path}`">
+        </div>
     </section>
 </template>
 
