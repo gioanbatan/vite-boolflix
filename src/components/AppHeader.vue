@@ -11,10 +11,27 @@ export default {
 </script>
 
 <template>
-    <span>BOOLFIX</span>
-    <AppSearch />
+    <header>
+        <div class="container">
+            <div class="header-content p-3 d-flex flex-column flex-md-row justify-content-between">
+                <span class="ms_logo">BOOLFLIX</span>
+                <AppSearch />
+
+            </div>
+        </div>
+    </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
+@use "../styles/partials/variables" as *;
 
+header {
+    background-color: $col-black;
+    color: $col-red-netflix;
+}
+
+.ms_logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
 </style>

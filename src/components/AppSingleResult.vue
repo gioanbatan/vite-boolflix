@@ -33,7 +33,7 @@ export default {
     </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .flag {
     max-width: 30px;
 }

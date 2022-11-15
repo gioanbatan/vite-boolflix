@@ -1,1 +1,20 @@
+@use "../styles/partials/variables" as *;
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/@fortawesome/fontawesome/css/all.min.css";
+
+
+// RESET
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+// COMMON
+.ms_btn-primary {
+    background-color: $col-red-netflix;
+}
