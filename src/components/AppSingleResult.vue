@@ -1,6 +1,11 @@
 <script>
 export default {
     name: "AppSingleResult",
+    data() {
+        return {
+            hover: false,
+        }
+    },
     props: {
         result: Object,
         flag: String,
@@ -15,26 +20,62 @@ export default {
 </script>
 
 <template>
-    <section>
-        <div v-if="type === 'movie'">Title: {{ result.title }}</div>
-        <div v-else-if="type === 'series'">Title: {{ result.name }} </div>
-        <div v-if="type === 'movie'">Original title: {{ result.original_title }}</div>
-        <div v-else-if="type === 'series'">Original title: {{ result.original_name }}</div>
-        <div v-if="flag">
-            <span>Language (img): </span>
-            <img class="flag" :src="getImagePath(`../assets/img/${this.flag}`)" :alt="`${result.original_language}`">
-        </div>
-        <div v-else>Language: {{ result.original_language }}</div>
-        <div>Vote: {{ result.vote_average }}</div>
-        <span v-for="n in (Math.ceil(result.vote_average / 2))" :key="n">&starf;</span>
-        <div>
+    <section class="ms_card" @mouseover="hover = true" @mouseleave="hover = false">
+        <div :class="{ collapse: hover }" class="ms_front">
             <img :src="`https://image.tmdb.org/t/p/w342/${result.poster_path}`">
+        </div>
+        <div :class="{ collapse: !hover }" class="ms_back">
+            <div v-if="type === 'movie'">Title: {{ result.title }}</div>
+            <div v-else-if="type === 'series'">Title: {{ result.name }} </div>
+            <div v-if="type === 'movie'">Original title: {{ result.original_title }}</div>
+            <div v-else-if="type === 'series'">Original title: {{ result.original_name }}</div>
+            <div v-if="flag">
+                <span>Language (img): </span>
+                <img class="ms_flag" :src="getImagePath(`../assets/img/${this.flag}`)"
+                    :alt="`${result.original_language}`">
+            </div>
+            <div v-else>Language: {{ result.original_language }}</div>
+            <div>Vote: {{ result.vote_average }}</div>
+            <span v-for="n in (Math.ceil(result.vote_average / 2))" :key="n">&starf;</span>
         </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.flag {
+@use "../styles/partials/variables" as *;
+
+.ms_card {
+    width: 100%;
+    height: 100%;
+
+    .ms_front {
+        width: 100%;
+        height: 100%;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .ms_back {
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-weight: 700;
+        font-size: 0.8rem;
+        overflow: auto;
+    }
+
+}
+
+
+.ms_flag {
     max-width: 30px;
+}
+
+.ms_back {
+    background-color: $col-black;
+    color: $col-white;
 }
 </style>

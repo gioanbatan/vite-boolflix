@@ -42,23 +42,42 @@ export default {
 </script>
 
 <template>
-    <div>Movies:</div>
-    <div v-for="(item, index) in store.movieFound" :key="index">
-        <div>Result: {{ (index + 1) }}</div>
-        <br>
-        <AppSingleResult :result="item" type="movie" :flag="`${langToFlag(item)}`" />
-        <hr>
-    </div>
+    <main>
+        <h2 v-if="store.movieFound.length" class="text-center p-2">Movies found:</h2>
 
-    <div>Tv Shows:</div>
-    <div v-for="(item, index) in store.seriesFound" :key="index">
-        <div>Result: {{ (index + 1) }}</div>
-        <br>
-        <AppSingleResult :result="item" type="series" :flag="`${langToFlag(item)}`" />
+        <div class="container">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-6">
+                <div class="col g-2" v-for="(item, index) in store.movieFound" :key="index">
+                    <AppSingleResult :result="item" type="movie" :flag="`${langToFlag(item)}`" />
+                </div>
+            </div>
+        </div>
+
         <hr>
-    </div>
+        <h2 v-if="store.seriesFound.length" class="text-center p-2">Tv-Show found:</h2>
+        <div class="container">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-6">
+                <div class="col g-2" v-for="(item, index) in store.seriesFound" :key="index">
+                    <AppSingleResult :result="item" type="series" :flag="`${langToFlag(item)}`" />
+                </div>
+            </div>
+        </div>
+    </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@use "../styles/partials/variables" as *;
 
+main {
+    padding-top: $header-height;
+    background-color: $col-bg;
+    color: $col-white;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.col {
+    height: 250px;
+}
 </style>

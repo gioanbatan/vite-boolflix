@@ -26,8 +26,11 @@ export default {
 @use "../styles/partials/variables" as *;
 
 header {
+    position: fixed;
     background-color: $col-black;
     color: $col-red-netflix;
+    width: 100%;
+    height: $header-height;
 }
 
 .ms_logo {
