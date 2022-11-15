@@ -16,7 +16,6 @@ export default {
             <div class="header-content p-3 d-flex flex-column flex-md-row justify-content-between">
                 <span class="ms_logo">BOOLFLIX</span>
                 <AppSearch />
-
             </div>
         </div>
     </header>

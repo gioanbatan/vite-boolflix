@@ -53,7 +53,6 @@ export default {
             </div>
         </div>
 
-        <hr>
         <h2 v-if="store.seriesFound.length" class="text-center p-2">Tv-Show found:</h2>
         <div class="container">
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-6">
@@ -78,6 +77,6 @@ main {
 }
 
 .col {
-    height: 250px;
+    height: 300px;
 }
 </style>
