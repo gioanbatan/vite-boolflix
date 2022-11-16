@@ -7,7 +7,7 @@ export const store = reactive({
     seriesURL: "tv",
     apiKey: "2c49be34bbee907783d1de30dbc7df96",
     query: "",
-    isLoading: false,
+    isLoading: 2,
     movieFound: [],
     seriesFound: [],
     flagImage: "",

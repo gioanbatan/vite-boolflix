@@ -21,7 +21,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppLoading v-if="store.isLoading" />
+  <AppLoading v-if="store.isLoading < 2" />
   <AppResults v-else />
 </template>
 
