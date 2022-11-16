@@ -33,9 +33,6 @@ export default {
                 default:
                     return "";
             }
-        },
-        gus() {
-            return "640px-Flag_of_Germany.svg.png";
         }
     }
 }
@@ -46,7 +43,7 @@ export default {
         <h2 v-if="store.movieFound.length" class="text-center p-2">Movies found:</h2>
 
         <div class="container">
-            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 row-cols-lg-6">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
                 <div class="col g-2" v-for="(item, index) in store.movieFound" :key="index">
                     <AppSingleResult :result="item" type="movie" :flag="`${langToFlag(item)}`" />
                 </div>
@@ -77,6 +74,12 @@ main {
 }
 
 .col {
-    height: 300px;
+    height: $card-height-xs;
+}
+
+@media screen and (min-width: 576px) {
+    .col {
+        height: $card-height-sm;
+    }
 }
 </style>

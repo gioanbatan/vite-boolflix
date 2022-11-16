@@ -13,8 +13,8 @@ export default {
 <template>
     <header>
         <div class="container">
-            <div class="header-content p-3 d-flex flex-column flex-md-row justify-content-between">
-                <span class="ms_logo">BOOLFLIX</span>
+            <div class="header-content d-flex flex-column align-items-center flex-sm-row justify-content-sm-between">
+                <span class="ms_logo text-center sm-text-start">BOOLFLIX</span>
                 <AppSearch />
             </div>
         </div>
@@ -29,6 +29,10 @@ header {
     background-color: $col-black;
     color: $col-red-netflix;
     width: 100%;
+    height: $header-height;
+}
+
+.header-content {
     height: $header-height;
 }
 

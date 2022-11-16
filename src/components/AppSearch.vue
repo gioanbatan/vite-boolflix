@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-    <section>
+    <section class="d-flex align-items-center">
         <label class="d-none" for="search">Insert search query:</label>
         <input class="mx-2" @keyup.enter="search" type="text" id="search" placeholder="Search" v-model="store.query">
         <button class="btn ms_btn-primary" @click="search">Start Search!</button>
@@ -51,5 +51,9 @@ export default {
 </template>
 
 <style lang="scss">
-@use "../styles/general.scss"
+@use "../styles/general.scss";
+
+.ms_btn-primary {
+    white-space: nowrap;
+}
 </style>

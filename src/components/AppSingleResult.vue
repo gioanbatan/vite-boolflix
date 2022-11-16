@@ -26,8 +26,6 @@ export default {
             <div v-else class="ms_no-pic">
                 no picture
             </div>
-
-            <!-- <div class="ms_no-pic">NOO</div> -->
         </div>
         <div :class="{ collapse: !hover }" class="ms_back">
             <div v-if="type === 'movie'">Title: {{ result.title }}</div>
@@ -35,15 +33,16 @@ export default {
             <div v-if="type === 'movie'">Original title: {{ result.original_title }}</div>
             <div v-else-if="type === 'series'">Original title: {{ result.original_name }}</div>
             <div v-if="flag">
-                <span>Language (img): </span>
+                <div>Language (img): </div>
                 <img class="ms_flag" :src="getImagePath(`../assets/img/${this.flag}`)"
                     :alt="`${result.original_language}`">
             </div>
             <div v-else>Language: {{ result.original_language }}</div>
-            <div>Vote: {{ result.vote_average }}</div>
-            <font-awesome-icon class="ms_stars" v-for="n in (Math.ceil(result.vote_average / 2))" :key="n"
-                icon="fa-solid fa-star" />
-            <font-awesome-icon class="ms_stars" icon="fa-solid fa-star" />
+            <i class="fa-solid fa-star ms_stars" v-for="n in (Math.ceil(result.vote_average / 2))" :key="n"></i>
+            <i class="fa-regular fa-star ms_stars" v-for="n in (5 - (Math.ceil(result.vote_average / 2)))" :key="n"></i>
+            <div>Overview:</div>
+            <div>{{ result.overview }}</div>
+
         </div>
     </section>
 </template>
@@ -100,5 +99,6 @@ export default {
     width: 100%;
     height: 100%;
     color: $col-bg;
+    font-size: 2rem;
 }
 </style>
